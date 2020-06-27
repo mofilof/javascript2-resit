@@ -32,7 +32,7 @@ let tas = document.getElementById('flavour');
 function test() {
   console.log('Test values');
   localStorage.setItem('tas', tas)
-
+  sizebtn();
 };
 
 let cartContent = document.getElementById('addToCart');
@@ -47,6 +47,7 @@ function checkout() {
   console.log(cartContent);
   localStorage.getItem('cartContent')
   document.getElementById('order').innerHTML += cartContent;
+
 }
 
 function chocolatebtn() {
@@ -59,20 +60,20 @@ function vanillabtn() {
   document.getElementById("flavour").innerHTML = "Vanilla";
 }
 
-const sizeOne = document.getElementById('sizeOne');
-const sizeTwo = document.getElementById('sizeTwo');
-const sizeThree = document.getElementById('sizeThree');
+var volume = ['1kg', '2.5kg', '5kg'];
+var sizes = document.getElementById('sizes');
 
 function sizebtn() {
-  if (sizeThree.nodeValue = "5 kg") {
-    document.getElementById("size").innerHTML += "5 kg";
+  if (sizes.value === "5 kg") {
+    document.getElementById("size").innerHTML = "5 kg";
   }
-  else if (sizeTwo.nodeValue = "2.5 kg") {
-    document.getElementById("size").innerHTML += "2.5 kg";
+  else if (sizes.value === "2.5 kg") {
+    document.getElementById("size").innerHTML = "2.5 kg";
   }
   else {
-    document.getElementById("size").innerHTML += "1 kg";
+    document.getElementById("size").innerHTML = "1 kg";
   }
+
 }
 
 
