@@ -33,17 +33,6 @@ function test() {
   console.log('Test values');
   localStorage.setItem('tas', tas)
 
-  if (sizeThree.nodeValue = "5 kg") {
-    document.getElementById("size").innerHTML = "5 kg";
-  }
-  else if (sizeTwo.nodeValue = "2.5 kg") {
-    document.getElementById("size").innerHTML = "2.5 kg";
-  }
-  else {
-    document.getElementById("size").innerHTML = "1 kg";
-  }
-
-
 };
 
 let cartContent = document.getElementById('addToCart');
@@ -74,6 +63,17 @@ const sizeOne = document.getElementById('sizeOne');
 const sizeTwo = document.getElementById('sizeTwo');
 const sizeThree = document.getElementById('sizeThree');
 
+function sizebtn() {
+  if (sizeThree.nodeValue = "5 kg") {
+    document.getElementById("size").innerHTML += "5 kg";
+  }
+  else if (sizeTwo.nodeValue = "2.5 kg") {
+    document.getElementById("size").innerHTML += "2.5 kg";
+  }
+  else {
+    document.getElementById("size").innerHTML += "1 kg";
+  }
+}
 
 
 
