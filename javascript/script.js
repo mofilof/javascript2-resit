@@ -123,13 +123,14 @@ function addFudge() {
 
 //add all the costs:
 var cost = [];
-
 function price() {
-  var i;
-  for (i = 0; i < cost.length; i++) {
-    document.getElementById('cost').innerHTML = cost[i] + cost[i] + cost[i] +
-      cost[i] + cost[i] + '$';
+  let totalcost = 0;
+  for (let i = 0; i < cost.length; i++) {
+    totalcost += cost[i];
   }
+  console.log(totalcost);
+  document.getElementById('cost').innerHTML = totalcost;
+
 }
 
 //Collect and show cart content:
