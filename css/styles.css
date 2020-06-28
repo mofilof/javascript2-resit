@@ -3,6 +3,10 @@ body {
   margin: auto;
 }
 
+.cart{
+  display: none;
+}
+
 #error{
   color: red;
 }

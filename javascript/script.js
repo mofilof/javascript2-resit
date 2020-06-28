@@ -34,12 +34,13 @@ var rasberryCost = '';
 var cookieCost = '';
 var fudgeCost = '';
 
-var testValues = document.getElementById('flavour').value;
+
 
 var letters = /a-z/;
 
 function make() {
-  if (testValues = letters) {
+  var testValues = document.getElementById('flavour').value;
+  if (testValues == letters) {
     console.log('Tasty treats')
   }
   console.log('Test values');
@@ -120,7 +121,7 @@ function addFudge() {
 //add all the costs:
 
 function price() {
-  document.getElementById('cost').innerHTML += sprinkleCost + rasberryCost + cookieCost + fudgeCost + '$';
+  document.getElementById('cost').innerHTML = sprinkleCost + rasberryCost + cookieCost + fudgeCost + '$';
 }
 
 //Collect and show cart content:
@@ -133,13 +134,15 @@ function checkout() {
   console.log(tas)
   sessionStorage.getItem('cartContent')
   console.log(cartContent);
+  placeOrder();
 }
 
 //Make the results appear on the checkout page:
 function placeOrder() {
   console.log('order placed');
-  sessionStorage.getItem('cartContent')
+  sessionStorage.getItem(cartContent);
   document.getElementById('order').innerHTML += cartContent;
+
 }
 
 
@@ -165,13 +168,31 @@ function tryValues() {
  */
 
 //Form Validation:
-var theName = document.getElementById('name').value;
 
-function tryValues() {
-  if (theName = letters) {
-    console.log('Letters')
+var letter = /a-z/;
+//var letter = /\a-z\A-Z/;
+//var email = [/a-z\+@\/a-z/]; or [/@+/] (my regex)
+//regex borrowed from javascript1 lesson 4
+var email = /\S+@\S+\.\S+/;
+
+function tryName() {
+  var theName = document.getElementById('name').inputValue;
+  if (theName == letter) {
+    console.log('great name')
   }
   else {
-    console.log('we need letters')
+    document.getElementById('error').innerHTML += 'Please type your name. ';
   }
+}
+
+function tryEmail() {
+  var theEmail = document.getElementById('email').value;
+  if (theEmail != email) {
+    document.getElementById('error').innerHTML += 'Please type your email. ';
+  }
+}
+
+function tryValues() {
+  tryName();
+  tryEmail();
 }
