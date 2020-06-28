@@ -27,19 +27,12 @@ var addNewStudent = function (flavour, size, additions) {
 */
 // id's flavour, size, additions, cost
 
+
 let tas = document.getElementById('flavour');
-
-var sprinkleCost = '';
-var rasberryCost = '';
-var cookieCost = '';
-var fudgeCost = '';
-
-
 
 var letters = /a-z/;
 
 function make() {
-
   var testValues = document.getElementById('flavour').value;
   if (testValues == letters) {
     console.log('Tasty treats')
@@ -53,7 +46,7 @@ function make() {
   addChocChipCookie();
   addFudge();
   price();
-
+  showCart();
 };
 
 //Radio buttons Chocolate or Vanilla:
@@ -120,7 +113,6 @@ function addFudge() {
 }
 
 
-
 //add all the costs:
 var cost = [];
 function price() {
@@ -130,7 +122,6 @@ function price() {
   }
   console.log(totalcost);
   document.getElementById('cost').innerHTML = totalcost;
-
 }
 
 //Collect and show cart content:
@@ -144,6 +135,7 @@ function checkout() {
   sessionStorage.getItem('cartContent')
   console.log(cartContent);
   placeOrder();
+  payPrice();
 }
 
 //Make the results appear on the checkout page:
@@ -151,8 +143,14 @@ function placeOrder() {
   console.log('order placed');
   sessionStorage.getItem(cartContent);
   document.getElementById('order').innerHTML += cartContent;
-
 }
+
+//Show the cart once ice is added to cart
+function showCart() {
+  var show = document.getElementById('theCart');
+  show.style.display = 'block';
+}
+
 
 
 // When a product is added to cart use inner html to place it in a list. 
