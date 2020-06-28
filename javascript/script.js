@@ -1,32 +1,3 @@
-/*
-let vanilla = document.getElementById('vanilla');
-let chocolate = document.getElementById('chocolate');
-
-function storevalues() {
-  sessionStorage.setItem('vanilla', 'vanillaFlavour')
-  sessionStorage.setItem('chocolate', 'chocolateFlavour')
-}
-
-function getvalues() {
-  sessionStorage.getItem('vanilla')
-  sessionStorage.getItem('chocolate')
-}
-
-var ice = [];
-
-localStorage.setItem('iceOrder', JSON.stringify(ice));
-
-var addNewStudent = function (flavour, size, additions) {
-
-  var students = JSON.parse(localStorage.getItem('iceOrder') || [];
-
-  students.push({ flavour: flavour, size: size, additions: additions });
-
-  localStorage.setItem('iceOrder', JSON.stringify(ice));
-}
-*/
-// id's flavour, size, additions, cost
-
 
 let tas = document.getElementById('flavour');
 
@@ -121,10 +92,12 @@ function price() {
     totalcost += cost[i];
   }
   document.getElementById('cost').innerHTML = totalcost;
-  sessionStorage.setItem('totalcost', totalcost);
+  localStorage.setItem('thecost', totalcost.value)
 }
+
+
 function payPrice() {
-  document.getElementById('total').innerHTML += sessionStorage.getItem('totalcost');
+  document.getElementById('total').innerHTML += localStorage.getItem('thecost');
 }
 
 //Collect and show cart content:
@@ -136,7 +109,9 @@ function addCartContent() {
 function checkout() {
   console.log(tas)
   sessionStorage.getItem('cartContent')
+  dosument.getElementById('order').innerHTML += cartContent;
   console.log(cartContent);
+  payPrice();
 }
 
 //Make the results appear on the checkout page:
