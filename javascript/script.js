@@ -27,16 +27,23 @@ var addNewStudent = function (flavour, size, additions) {
 */
 // id's flavour, size, additions, cost
 
-const { check } = require("yargs");
-
 let tas = document.getElementById('flavour');
+
+var sprinkleCost = '';
+var rasberryCost = '';
+var cookieCost = '';
+var fudgeCost = '';
 
 function test() {
   console.log('Test values');
   localStorage.setItem('tas', tas)
   sizebtn();
   addCartContent();
-  document.getElementById('cost').innerHTML + '$';
+  addSprinkles();
+  addRasberryRipple();
+  addChocChipCookie();
+  addFudge();
+  price();
 };
 
 //Radio buttons Chocolate or Vanilla:
@@ -56,45 +63,63 @@ var sizes = document.getElementById('sizes');
 function sizebtn() {
   if (sizes.value === "5 kg") {
     document.getElementById("size").innerHTML = "5 kg.";
-    document.getElementById('cost').innerHTML += 35;
+
   }
   else if (sizes.value === "2.5 kg") {
     document.getElementById("size").innerHTML = "2.5 kg.";
-    document.getElementById('cost').innerHTML += 20;
+
   }
   else {
     document.getElementById("size").innerHTML = "1 kg.";
-    document.getElementById('cost').innerHTML += 10;
+
   }
 }
 
 //Checkboxes with additions:
+var checkSprinkles = document.getElementById("sprinkles");
+var checkRasberry = document.getElementById("rasberryripple");
+var checkCookie = document.getElementById("chocchipcookie");
+var checkFudge = document.getElementById("fudge");
+
 function addSprinkles() {
-  console.log('sprinkles');
-  document.getElementById('additions').innerHTML += "Sprinkles. ";
-  document.getElementById('cost').innerHTML += 5;
+  if (checkSprinkles.checked === true) {
+    console.log('sprinkles');
+    document.getElementById('additions').innerHTML += "Sprinkles. ";
+    var sprinkleCost = 5;
+  }
 }
 function addRasberryRipple() {
-  console.log('rasberryripple');
-  document.getElementById('additions').innerHTML += "Rasberry Ripple. ";
-  document.getElementById('cost').innerHTML += 5;
+  if (checkRasberry.checked === true) {
+    console.log('rasberryripple');
+    document.getElementById('additions').innerHTML += "Rasberry Ripple. ";
+    var rasberryCost = 5;
+  }
 }
 function addChocChipCookie() {
-  console.log('chocChipCookie');
-  document.getElementById('additions').innerHTML += "Choc Chip Cookie. ";
-  document.getElementById('cost').innerHTML += 5;
+  if (checkCookie.checked === true) {
+    console.log('chocChipCookie');
+    document.getElementById('additions').innerHTML += "Choc Chip Cookie. ";
+    var cookieCost = 5;
+  }
 }
 function addFudge() {
-  console.log('fudge');
-  document.getElementById('additions').innerHTML += "Fudge. ";
-  document.getElementById('cost').innerHTML += 5;
+  if (checkFudge.checked === true) {
+    console.log('fudge');
+    document.getElementById('additions').innerHTML += "Fudge. ";
+    var fudgeCost = 5;
+  }
+}
+
+//add all the costs:
+
+function price() {
+  document.getElementById('cost').innerHTML += sprinkleCost + rasberryCost + cookieCost + fudgeCost + '$';
 }
 
 //Collect and show cart content:
 let cartContent = document.getElementById('addToCart');
 function addCartContent() {
   sessionStorage.setItem('cartContent', cartContent)
-
 };
 
 function checkout() {
