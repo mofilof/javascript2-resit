@@ -121,10 +121,10 @@ function price() {
     totalcost += cost[i];
   }
   document.getElementById('cost').innerHTML = totalcost;
-  localStorage.setItem('totalcost', totalcost);
+  sessionStorage.setItem('totalcost', totalcost);
 }
 function payPrice() {
-  document.getElementById('total').innerHTML = localStorage.getItem('totalcost');
+  document.getElementById('total').innerHTML += sessionStorage.getItem('totalcost');
 }
 
 //Collect and show cart content:
@@ -137,8 +137,6 @@ function checkout() {
   console.log(tas)
   sessionStorage.getItem('cartContent')
   console.log(cartContent);
-  placeOrder();
-  payPrice();
 }
 
 //Make the results appear on the checkout page:
