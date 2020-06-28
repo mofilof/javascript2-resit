@@ -120,8 +120,11 @@ function price() {
   for (let i = 0; i < cost.length; i++) {
     totalcost += cost[i];
   }
-  console.log(totalcost);
   document.getElementById('cost').innerHTML = totalcost;
+  localStorage.setItem('totalcost', totalcost);
+}
+function payPrice() {
+  document.getElementById('total').innerHTML = localStorage.getItem('totalcost');
 }
 
 //Collect and show cart content:
@@ -150,29 +153,6 @@ function showCart() {
   var show = document.getElementById('theCart');
   show.style.display = 'block';
 }
-
-
-
-// When a product is added to cart use inner html to place it in a list. 
-//Make it possible to delete, perhaps by adding a button with innerHTML, two birds one stone.
-
-//Make an object out of each order?
-
-
-//Form validation:
-/**
- 
-var tryName = document.getElementById('name');
-
-function tryValues() {
-  if (tryName.value = null) {
-    document.getElementById('error').innerHTML += 'We need your name';
-  }
-  else {
-    console.log('nop')
-  }
-}
- */
 
 //Form Validation:
 
