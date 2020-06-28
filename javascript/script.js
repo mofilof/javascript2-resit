@@ -34,7 +34,14 @@ var rasberryCost = '';
 var cookieCost = '';
 var fudgeCost = '';
 
-function test() {
+var testValues = document.getElementById('flavour').value;
+
+var letters = /a-z/;
+
+function make() {
+  if (testValues = letters) {
+    console.log('Tasty treats')
+  }
   console.log('Test values');
   localStorage.setItem('tas', tas)
   sizebtn();
@@ -44,6 +51,7 @@ function test() {
   addChocChipCookie();
   addFudge();
   price();
+
 };
 
 //Radio buttons Chocolate or Vanilla:
@@ -57,7 +65,6 @@ function vanillabtn() {
 }
 
 //Select x kilos of icecream:
-var volume = ['1kg', '2.5kg', '5kg'];
 var sizes = document.getElementById('sizes');
 
 function sizebtn() {
@@ -140,3 +147,31 @@ function placeOrder() {
 //Make it possible to delete, perhaps by adding a button with innerHTML, two birds one stone.
 
 //Make an object out of each order?
+
+
+//Form validation:
+/**
+ 
+var tryName = document.getElementById('name');
+
+function tryValues() {
+  if (tryName.value = null) {
+    document.getElementById('error').innerHTML += 'We need your name';
+  }
+  else {
+    console.log('nop')
+  }
+}
+ */
+
+//Form Validation:
+var theName = document.getElementById('name').value;
+
+function tryValues() {
+  if (theName = letters) {
+    console.log('Letters')
+  }
+  else {
+    console.log('we need letters')
+  }
+}
