@@ -1,5 +1,4 @@
-//Link to github: https://github.com/mofilof/javascript2-resit
-
+//Link to git repository: https://github.com/mofilof/javascript2-resit
 
 let tas = document.getElementById('flavour');
 
