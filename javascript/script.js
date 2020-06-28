@@ -84,7 +84,6 @@ function addFudge() {
   }
 }
 
-
 //add all the costs:
 var cost = [];
 function price() {
@@ -95,7 +94,6 @@ function price() {
   document.getElementById('cost').innerHTML = totalcost;
   localStorage.setItem('thecost', totalcost.value)
 }
-
 
 function payPrice() {
   document.getElementById('total').innerHTML += localStorage.getItem('thecost');
