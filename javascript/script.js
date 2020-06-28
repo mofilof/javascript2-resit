@@ -39,6 +39,7 @@ var fudgeCost = '';
 var letters = /a-z/;
 
 function make() {
+
   var testValues = document.getElementById('flavour').value;
   if (testValues == letters) {
     console.log('Tasty treats')
@@ -71,15 +72,15 @@ var sizes = document.getElementById('sizes');
 function sizebtn() {
   if (sizes.value === "5 kg") {
     document.getElementById("size").innerHTML = "5 kg.";
-
+    cost.push(35)
   }
   else if (sizes.value === "2.5 kg") {
     document.getElementById("size").innerHTML = "2.5 kg.";
-
+    cost.push(20)
   }
   else {
     document.getElementById("size").innerHTML = "1 kg.";
-
+    cost.push(10)
   }
 }
 
@@ -93,35 +94,42 @@ function addSprinkles() {
   if (checkSprinkles.checked === true) {
     console.log('sprinkles');
     document.getElementById('additions').innerHTML += "Sprinkles. ";
-    var sprinkleCost = 5;
+    cost.push(5)
   }
 }
 function addRasberryRipple() {
   if (checkRasberry.checked === true) {
     console.log('rasberryripple');
     document.getElementById('additions').innerHTML += "Rasberry Ripple. ";
-    var rasberryCost = 5;
+    cost.push(5)
   }
 }
 function addChocChipCookie() {
   if (checkCookie.checked === true) {
     console.log('chocChipCookie');
     document.getElementById('additions').innerHTML += "Choc Chip Cookie. ";
-    var cookieCost = 5;
+    cost.push(5)
   }
 }
 function addFudge() {
   if (checkFudge.checked === true) {
     console.log('fudge');
     document.getElementById('additions').innerHTML += "Fudge. ";
-    var fudgeCost = 5;
+    cost.push(5)
   }
 }
 
+
+
 //add all the costs:
+var cost = [];
 
 function price() {
-  document.getElementById('cost').innerHTML = sprinkleCost + rasberryCost + cookieCost + fudgeCost + '$';
+  var i;
+  for (i = 0; i < cost.length; i++) {
+    document.getElementById('cost').innerHTML = cost[i] + cost[i] + cost[i] +
+      cost[i] + cost[i] + '$';
+  }
 }
 
 //Collect and show cart content:
